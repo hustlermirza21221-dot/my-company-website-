@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Projects</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0b0f2a;
+    color:#fff;
+}
+
+/* 🔥 HERO */
+.hero{
+    position:relative;
+    height:70vh;
+    overflow:hidden;
+    border-radius:15px;
+    box-shadow: 0 10px 10px rgba(212,175,55,0.6);
+    z-index:2;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    border-radius:15px;
+    padding:2px;
+
+    background:linear-gradient(120deg,#00ffcc,#00c6ff,#0072ff);
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+
+    animation: rotateBorder 6s linear infinite;
+    pointer-events:none;
+    z-index:3;
+}
+
+/* slider images */
+.slider{
+    position:absolute;
+    width:100%;
+    height:100%;
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transition:3s;
+    overflow:hidden;
+}
+
+/* DARK OVERLAY */
+.slide::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.45);  /* 🔥 darkness control here */
+    z-index:1;
+}
+
+/* image stays behind overlay */
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    position:relative;
+    z-index:0;
+}
+
+/* caption above everything */
+.caption{
+    position:absolute;
+    bottom:40px;
+    left:40px;
+    max-width:600px;
+    color:#fff;
+    z-index:2;
+}
+.slide.active{
+    opacity:1;
+    z-index:1;
+}
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+
+
+/* top controls */
+.top-bar{
+    position:absolute;
+    top:15px;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 30px;
+    z-index:2;
+}
+
+/* home button */
+.home-btn{
+    position:absolute;
+    top:5px;      /* 🔥 sabse upar */
+    left:5px;     /* 🔥 sabse left corner */
+    padding:8px 10px;
+    color:#fff;
+    text-decoration:none;
+    border-radius:10px;
+    backdrop-filter:blur(6px);
+    z-index:5;
+    overflow:hidden;
+    background:rgba(255,255,255,0.1);
+}
+
+.home-btn::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    border-radius:10px;
+    padding:2px;
+
+    background:linear-gradient(120deg,#00ffcc,#00c6ff,#0072ff);
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+
+    animation: rotateBorder 6s linear infinite;
+    pointer-events:none;
+}
+
+/* logo side */
+.logo-box{
+     margin-left:auto;
+    text-align:right;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    text-align:center;
+
+    padding:10px 14px;
+    border-radius:12px;
+    overflow:hidden;
+    z-index:2;
+}
+
+.logo-box::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    border-radius:12px;
+    padding:2px;
+
+    background:linear-gradient(120deg,#00ffcc,#00c6ff,#0072ff);
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+
+    animation: rotateBorder 6s linear infinite;
+    pointer-events:none;
+}
+
+
+.logo-box img{
+    width:70px;
+}
+
+.logo-box span{
+    font-size:18px;
+    font-weight:600;
+    letter-spacing:1px;
+    opacity:0.9;
+}
+
+/* 🔥 PROJECT SECTION */
+.section{
+    padding:60px 8%;
+}
+
+/* grid */
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+/* card */
+.card{
+    background:rgba(255,255,255,0.05);
+    border-radius:15px;
+    box-shadow: 5px 5px 20px rgba(212,175,55,0.6);
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.4s;
+    position:relative;
+}
+
+/* glowing border */
+.card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    border-radius:15px;
+    padding:2px;
+    background:linear-gradient(120deg,#00ffcc,#00c6ff,#0072ff);
+    
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+
+    animation: rotateBorder 6s linear infinite;
+}
+
+/* image */
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    object-position: top;
+}
+
+/* title */
+.card h3{
+    padding:15px;
+    text-align:center;
+    font-weight:600;
+
+    background: linear-gradient(90deg, #00ffcc, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    letter-spacing:0.5px;
+}
+/* hover */
+.card:hover{
+    transform:translateY(-8px) scale(1.02);
+    box-shadow:0 0 25px rgba(0,255,204,0.3);
+}
+
+/* border animation */
+@keyframes rotateBorder{
+    0%{ filter:hue-rotate(0deg); }
+    100%{ filter:hue-rotate(360deg); }
+}
+
+.section-title{
+    text-align:center;
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:40px;
+
+    background: linear-gradient(90deg, #00ffcc, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    letter-spacing:1px;
+    position:relative;
+}
+
+.section-title::after{
+    content:'';
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:-10px;
+    width:120px;
+    height:3px;
+    background:linear-gradient(90deg,#00ffcc,#00c6ff,#0072ff);
+    border-radius:5px;
+    box-shadow:0 0 10px rgba(0,255,204,0.4);
+}
+
+.caption{
+    position:absolute;
+    bottom:40px;
+    left:40px;
+    max-width:500px;
+    color:#fff;
+    z-index:2;
+}
+
+/* heading (quote) */
+.caption h2{
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:10px;
+    line-height:1.2;
+}
+
+/* paragraph */
+.caption p{
+    font-size:16px;
+    font-weight:300;
+    line-height:1.6;
+    opacity:0.85;
+}
+
+.social-media{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin:40px 0;
+}
+
+.social-icon{
+    position:relative;
+    width:75px;
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    font-size:30px;
+    color:#fff;
+    text-decoration:none;
+
+    background: linear-gradient(135deg,#00ffcc,#0072ff);
+    
+    transition:0.4s;
+
+    /* glow */
+    box-shadow:
+        0 0 10px rgba(0,255,204,0.5),
+        0 0 20px rgba(0,198,255,0.4);
+}
+
+/* HOVER EFFECT */
+.social-icon:hover{
+    transform: translateY(-12px) scale(1.2);
+
+    box-shadow:
+        0 0 20px rgba(0,255,204,0.9),
+        0 0 40px rgba(0,198,255,0.8),
+        0 0 80px rgba(0,114,255,0.6);
+}
+
+/* TEXT (hidden by default) */
+.social-icon span{
+    position:absolute;
+    bottom:-25px;
+    left:50%;
+    transform:translateX(-50%);
+    
+    font-size:14px;
+    color:#00ffcc;
+    opacity:0;
+    transition:0.3s;
+}
+
+/* SHOW TEXT ON HOVER */
+.social-icon:hover span{
+    opacity:1;
+    bottom:-35px;
+}
+
+footer{
+    position:relative;
+    text-align:center;
+    padding:50px 20px;
+    margin-top:60px;
+    color:#aaa;
+
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(10px);
+
+    border-top:1px solid rgba(0,255,204,0.2);
+
+    /* 🔥 glowing separation */
+    box-shadow:
+        0 -10px 30px rgba(0,255,204,0.15),
+        0 -20px 60px rgba(0,198,255,0.1);
+}
+
+/* 🔥 top glowing line */
+footer::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:2px;
+
+    background: linear-gradient(90deg,#00ffcc,#00c6ff,#0072ff);
+    animation: glowLine 4s linear infinite;
+}
+
+@keyframes glowLine{
+    0%{ opacity:0.4; }
+    50%{ opacity:1; }
+    100%{ opacity:0.4; }
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<!-- 🔥 HERO -->
+<section class="hero">
+
+    <div class="top-bar">
+        <a href="INDEX.HTML" class="home-btn">Home</a>
+
+        <div class="logo-box">
+            <img src="COMPANY_LOGO-removebg-preview.png">
+            <span>ALMALT</span>
+        </div>
+    </div>
+
+   <div class="slider">
+
+    <div class="slide active">
+        <img src="3D Visualization.webp">
+        <div class="caption">
+            <h2>Turning imagination into 3D reality.</h2>
+            <p>We transform creative ideas into realistic architectural visualizations with precision and detail.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="Commercial Exterior.jpg">
+        <div class="caption">
+            <h2>Modern exteriors that define elegance.</h2>
+            <p>We design premium building exteriors that reflect strength, style, and modern architecture.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="Higaly-alignment-min.jpg">
+        <div class="caption">
+            <h2>Precision in every alignment matters.</h2>
+            <p>Accurate surveying ensures strong foundations and error-free construction planning.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="Interior-Exterior Design.webp">
+        <div class="caption">
+            <h2>Designing spaces that inspire living.</h2>
+            <p>We create modern interiors and exteriors that blend comfort, beauty, and functionality.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="Landscape Design.jpg">
+        <div class="caption">
+            <h2>Nature shaped with creative vision.</h2>
+            <p>Landscape designs that connect architecture with natural beauty and harmony.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="Villa Exterior Design.webp">
+        <div class="caption">
+            <h2>Luxury villas built with perfection.</h2>
+            <p>We craft elegant villa exteriors that combine luxury, comfort, and architectural excellence.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="Layout-in-Construction.jpg">
+        <div class="caption">
+            <h2>Smart layouts for strong foundations.</h2>
+            <p>Efficient construction layouts designed for stability, safety, and future expansion.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="Living Room Design.jpg">
+        <div class="caption">
+            <h2>Comfort begins with beautiful interiors.</h2>
+            <p>We design living spaces that bring warmth, style, and modern comfort together.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="n5.png">
+        <div class="caption">
+            <h2>Engineering dreams into reality.</h2>
+            <p>Turning complex engineering ideas into real-world successful projects.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="WhatsApp Image 2026-03-30 at 16.03.15 (4).jpeg">
+        <div class="caption">
+            <h2>Every project tells a success story.</h2>
+            <p>Each completed project reflects dedication, teamwork, and excellence.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="WhatsApp Image 2026-03-30 at 16.03.15.jpeg">
+        <div class="caption">
+            <h2>Teamwork builds extraordinary results.</h2>
+            <p>Strong collaboration leads to outstanding achievements and success.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="WhatsApp Image 2026-03-30 at 16.03.20.jpeg">
+        <div class="caption">
+            <h2>Where planning meets perfection.</h2>
+            <p>Careful planning ensures flawless execution in every stage of work.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="2.png">
+        <div class="caption">
+            <h2>Innovative solutions for modern needs.</h2>
+            <p>We deliver smart and innovative engineering solutions for today’s world.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="FOR CHECK BG REMOVER.jpg">
+        <div class="caption">
+            <h2>Detail is the key to excellence.</h2>
+            <p>We focus on every small detail to achieve perfection in results.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="gps-survey-services.jpg">
+        <div class="caption">
+            <h2>Accuracy defines our survey work.</h2>
+            <p>Highly precise surveying services ensuring reliable project data.</p>
+        </div>
+    </div>
+
+</div>
+
+    <div class="slide">
+        <img src="FOR CHECK BG REMOVER.jpg">
+        <div class="quote">"Detail is the key to excellence."</div>
+    </div>
+
+    <div class="slide">
+        <img src="gps-survey-services.jpg">
+        <div class="quote">"Accuracy defines our survey work."</div>
+    </div>
+
+</div>
+
+</section>
+
+<!-- 🔥 PROJECTS -->
+<section class="section">
+<h2 class="section-title">Our Company Projects</h2>
+
+<div class="projects">
+
+    <!-- CARD 1 -->
+    <div class="card" onclick="openProject('project1.html')">
+        <img src="Villa Exterior Design.webp">
+        <h3>Villa Design Project</h3>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card" onclick="openProject('project2.html')">
+        <img src="Living Room Design.jpg">
+        <h3>Interior Design Project</h3>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card" onclick="openProject('project3.html')">
+        <img src="Land-Surveying.webp">
+        <h3>Survey Project</h3>
+    </div>
+
+</div>
+
+</section>
+
+<footer>
+    
+<div class="social-media">
+
+    <a href="https://instagram.com/manarah_sa" target="_blank" class="social-icon instagram">
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+    </a>
+
+    <a href="https://facebook.com/manarah_sa" target="_blank" class="social-icon facebook">
+        <i class="fab fa-facebook-f"></i>
+        <span>Facebook</span>
+    </a>
+
+    <a href="https://snapchat.com/add/manarah_sa" target="_blank" class="social-icon snapchat">
+        <i class="fab fa-snapchat-ghost"></i>
+        <span>Snapchat</span>
+    </a>
+
+    <a href="https://twitter.com/manarah_sa" target="_blank" class="social-icon twitter">
+        <i class="fab fa-twitter"></i>
+        <span>Twitter</span>
+    </a>
+
+      <a href="https://tiktok.com/manarah_sa" target="_blank" class="social-icon tiktok">
+        <i class="fab fa-tiktok"></i>
+        <span>Tiktok</span>
+    </a>
+
+
+
+</div>
+
+© 2026 Al-Manarah Al-Thahabiya Company | All Rights Reserved
+
+</footer>
+
+
+<script>
+
+
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+setInterval(() => {
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+}, 10000);
+
+function openProject(page){
+    window.location.href = page;
+}
+
+</script>
+
+</body>
+</html>

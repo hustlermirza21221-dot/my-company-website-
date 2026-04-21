@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Bonding Moments</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#000;
+}
+
+.hero, .section{
+    position:relative;
+    z-index:2;
+}
+
+/* HERO SECTION */
+.hero{
+    height:80vh;
+    background-image:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url("party 6.jpeg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero img{
+    width:100px;
+    margin-bottom:15px;
+
+    filter: brightness(0) invert(1);
+}
+.hero h1{
+    font-size:52px;
+    font-weight:600;
+    margin-bottom:15px;
+    color:#ddd;
+   
+}
+
+.hero p{
+    color:#ddd;
+    max-width:650px;
+    font-size:18px;
+    line-height:1.7;
+    letter-spacing:0.5px;
+}
+
+/* SECTION */
+.section{
+    padding:60px 10%;
+}
+
+/* ROW STYLE */
+.row{
+    display:flex;
+    align-items:center;
+    margin-bottom:60px;
+    gap:40px;
+
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    padding:30px;
+    border-radius:15px;
+
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.4s;
+}
+
+.row:hover{
+    transform:translateY(-8px) scale(1.01);
+    box-shadow:0 20px 40px rgba(0,255,204,0.15);
+}
+
+body{
+    background: radial-gradient(circle at 20% 20%, #0b0f2a, #000 60%);
+    overflow-x:hidden;
+}
+
+/* REVERSE */
+.row.reverse{
+    flex-direction:row-reverse;
+}
+
+/* IMAGE */
+.row img{
+    width:50%;
+    border-radius:14px;
+    position:relative;
+    z-index:1;
+    transition:0.4s;
+
+    /* 🔥 GRADIENT BORDER */
+    border:2px solid transparent;
+    background:
+        linear-gradient(#000, #000) padding-box,
+        linear-gradient(120deg, #00ffcc, #00c6ff, #0072ff) border-box;
+
+    /* 🔥 REAL GLOW SHADOW (MULTI LAYER) */
+    box-shadow:
+        0 0 10px rgba(0,255,204,0.4),
+        0 0 20px rgba(0,198,255,0.4),
+        0 0 35px rgba(0,114,255,0.35),
+        0 0 60px rgba(0,198,255,0.25),
+        0 10px 30px rgba(0,0,0,0.7);
+}
+
+.row img::before{
+    content:'';
+    position:absolute;
+    inset:-6px;
+    border-radius:18px;
+
+    background: linear-gradient(120deg, #00ffcc, #00c6ff, #0072ff);
+
+    z-index:-1;
+    filter: blur(20px);
+    opacity:0.8;
+}
+
+
+.row img::after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition:0.5s;
+}
+
+.row img:hover{
+    transform:scale(1.06);
+
+    box-shadow:
+        0 0 20px rgba(0,255,204,0.7),
+        0 0 40px rgba(0,198,255,0.6),
+        0 0 80px rgba(0,114,255,0.5),
+        0 15px 40px rgba(0,0,0,0.8);
+}
+
+.row:hover img::after{
+    left:100%;
+}
+
+
+/* TEXT */
+.text{
+    width:50%;
+}
+
+.text h2{
+    font-size:32px;
+    margin-bottom:15px;
+    font-weight:600;
+
+    background: linear-gradient(90deg, #00ffcc, #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    position:relative;
+}
+
+/* underline effect */
+.text h2::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:60px;
+    height:3px;
+    background:linear-gradient(90deg, #00ffcc, #00c6ff);
+    border-radius:5px;
+}
+
+.text p{
+    color:#bbb;
+    line-height:1.8;
+    font-size:17px;
+    letter-spacing:0.4px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .row{
+        flex-direction:column;
+    }
+    .row.reverse{
+        flex-direction:column;
+    }
+    .row img, .text{
+        width:100%;
+    }
+}
+
+.hero{
+    position:relative;
+    z-index:2;
+    height:80vh;
+    background-image:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url("party 6.jpeg");
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+
+    border-radius:20px; /* 🔥 smooth edges */
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+
+    border-radius:20px;
+    padding:2px; /* border thickness */
+
+    background: linear-gradient(120deg, #00ffcc, #00c6ff, #0072ff);
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    z-index:1;
+
+    /* 🔥 STRONG GLOW */
+    box-shadow:
+        0 0 25px rgba(0,255,204,0.4),
+        0 0 50px rgba(0,198,255,0.25);
+
+    pointer-events:none;
+}
+
+.home-btn{
+    position:absolute;
+    top:20px;
+    left:20px;
+    padding:10px 14px;
+    border-radius:10px;
+    border:1px solid rgba(0,255,204,0.4);
+    background:rgba(0,0,0,0.6);
+    color:#00ffcc;
+    font-weight:600;
+    backdrop-filter:blur(10px);
+    cursor:pointer;
+    outline:none;
+    box-shadow:0 0 15px rgba(0,255,204,0.2);
+
+}
+
+.home-btn:hover{
+    background:#fff;
+    color:#000;
+    transform:scale(1.05);
+}
+
+.row{
+    position:relative;
+    display:flex;
+    align-items:center;
+    margin-bottom:60px;
+    gap:40px;
+
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    padding:30px;
+    border-radius:15px;
+
+    border:1px solid rgba(255,255,255,0.08);
+    
+    /* 🔥 SOFT PERMANENT GLOW */
+    box-shadow: 
+        0 0 10px rgba(0,255,204,0.08),
+        0 0 20px rgba(0,198,255,0.05);
+
+    transition:0.4s;
+    z-index:1;
+}
+
+/* 🔥 GRADIENT GLOW LAYER */
+.row::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    border-radius:16px;
+    padding:2px;
+
+    background: linear-gradient(
+        270deg,
+        #00ffcc,
+        #00c6ff,
+        #0072ff,
+        #00ffcc
+    );
+
+    background-size: 300% 300%;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    animation: borderMove 6s linear infinite;
+}
+
+@keyframes borderMove{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+.row::after{
+    content:'';
+    position:absolute;
+    inset:-6px;
+    border-radius:18px;
+
+    background: linear-gradient(
+        270deg,
+        #00ffcc,
+        #00c6ff,
+        #0072ff,
+        #00ffcc
+    );
+
+    filter: blur(20px);
+    opacity:0.6;
+    z-index:-1;
+
+    animation: borderMove 6s linear infinite;
+}
+
+.row:hover::before{
+    opacity:0.7;
+}
+
+.row:hover{
+    transform:translateY(-6px);
+
+    box-shadow: 
+        0 0 15px rgba(0,255,204,0.12),
+        0 0 25px rgba(0,198,255,0.08);
+}
+
+.row img{
+    width:50%;
+    border-radius:12px;
+    transition:0.4s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+.row img:hover{
+    transform:scale(1.06);
+}
+
+.row{
+    opacity:0;
+    transform:translateY(50px);
+    transition:all 0.8s ease;
+}
+
+.row.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+
+/* ⭐ BASE STARS */
+.stars{
+    position:fixed;
+    inset:0;
+    background:transparent;
+    z-index:1;
+    pointer-events:none;
+
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, #fff, transparent),
+        radial-gradient(1px 1px at 30% 80%, #fff, transparent),
+        radial-gradient(1px 1px at 50% 50%, #fff, transparent),
+        radial-gradient(1px 1px at 70% 30%, #fff, transparent),
+        radial-gradient(1px 1px at 90% 70%, #fff, transparent);
+
+    background-size: 300px 300px;
+    animation: drift 120s linear infinite;
+    opacity:0.8;
+}
+
+.stars2{
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+
+    background-image:
+        radial-gradient(2px 2px at 20% 40%, #00ffcc, transparent),
+        radial-gradient(2px 2px at 60% 70%, #00c6ff, transparent),
+        radial-gradient(2px 2px at 80% 20%, #fff, transparent);
+
+    background-size: 500px 500px;
+
+    filter: blur(0.5px);
+    animation: drift 160s linear infinite, glow 3s ease-in-out infinite alternate;
+}
+
+.stars3{
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+
+    background-image:
+        radial-gradient(4px 4px at 25% 30%, #ffffff, transparent),
+        radial-gradient(5px 5px at 70% 60%, #00ffcc, transparent),
+        radial-gradient(4px 4px at 40% 80%, #00c6ff, transparent);
+
+    background-size: 800px 800px;
+
+    filter: blur(1px);
+    animation: driftSlow 200s linear infinite, pulse 2s infinite alternate;
+}
+
+.nebula{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+
+    background:
+        radial-gradient(circle at 30% 40%, rgba(0,255,204,0.08), transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(0,198,255,0.08), transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03), transparent 60%);
+
+    filter: blur(40px);
+    animation: nebulaMove 40s ease-in-out infinite alternate;
+}
+
+.asteroids{
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+}
+
+.asteroids::before,
+.asteroids::after{
+    content:"";
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:#aaa;
+    border-radius:50%;
+    box-shadow:0 0 10px rgba(255,255,255,0.5);
+    animation: moveAsteroid 20s linear infinite;
+}
+
+.asteroids::after{
+    top:70%;
+    left:90%;
+    animation-duration:35s;
+}
+
+@keyframes drift{
+    from{ transform:translateY(0); }
+    to{ transform:translateY(-1000px); }
+}
+
+@keyframes driftSlow{
+    from{ transform:translateY(0); }
+    to{ transform:translateY(-500px); }
+}
+
+@keyframes glow{
+    0%{ opacity:0.5; }
+    100%{ opacity:1; }
+}
+
+@keyframes pulse{
+    0%{ transform:scale(1); opacity:0.6; }
+    100%{ transform:scale(1.2); opacity:1; }
+}
+
+@keyframes nebulaMove{
+    0%{ transform:translateX(0); }
+    100%{ transform:translateX(50px); }
+}
+
+@keyframes moveAsteroid{
+    from{
+        transform:translate(-200px, 100px);
+    }
+    to{
+        transform:translate(1200px, -200px);
+    }
+}
+
+/* ⭐ STRONG GLOW LAYER */
+.stars::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+
+    background:
+        radial-gradient(3px 3px at 25% 40%, #00ffcc, transparent),
+        radial-gradient(3px 3px at 60% 70%, #00c6ff, transparent),
+        radial-gradient(3px 3px at 85% 25%, #ffffff, transparent),
+        radial-gradient(3px 3px at 40% 90%, #00ffcc, transparent);
+
+    background-size: 500px 500px;
+
+    filter: blur(2px);
+
+    animation: glowPulse 2s ease-in-out infinite alternate,
+               moveStars 140s linear infinite;
+}
+
+/* ⭐ SPARKLE FLASH (SUPER SHINE) */
+.stars::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+
+    background:
+        radial-gradient(4px 4px at 15% 25%, #fff, transparent),
+        radial-gradient(4px 4px at 75% 60%, #fff, transparent),
+        radial-gradient(4px 4px at 55% 15%, #00ffcc, transparent);
+
+    background-size: 700px 700px;
+
+    filter: blur(1px);
+
+    animation: sparkle 1.5s infinite alternate;
+}
+
+/* ⭐ MOVEMENT */
+@keyframes moveStars{
+    from{ transform:translateY(0); }
+    to{ transform:translateY(-1000px); }
+}
+
+/* ⭐ SOFT GLOW */
+@keyframes glowPulse{
+    0%{
+        opacity:0.4;
+        filter: blur(2px);
+    }
+    100%{
+        opacity:1;
+        filter: blur(4px);
+    }
+}
+
+/* ⭐ FLASHING SPARKLE */
+@keyframes sparkle{
+    0%{
+        opacity:0;
+        transform:scale(0.8);
+    }
+    50%{
+        opacity:1;
+        transform:scale(1.3);
+    }
+    100%{
+        opacity:0.2;
+        transform:scale(1);
+    }
+}
+
+
+.social-media{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin:40px 0;
+}
+
+.social-icon{
+    position:relative;
+    width:75px;
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    font-size:30px;
+    color:#fff;
+    text-decoration:none;
+
+    background: linear-gradient(135deg,#00ffcc,#0072ff);
+    
+    transition:0.4s;
+
+    /* glow */
+    box-shadow:
+        0 0 10px rgba(0,255,204,0.5),
+        0 0 20px rgba(0,198,255,0.4);
+}
+
+/* HOVER EFFECT */
+.social-icon:hover{
+    transform: translateY(-12px) scale(1.2);
+
+    box-shadow:
+        0 0 20px rgba(0,255,204,0.9),
+        0 0 40px rgba(0,198,255,0.8),
+        0 0 80px rgba(0,114,255,0.6);
+}
+
+/* TEXT (hidden by default) */
+.social-icon span{
+    position:absolute;
+    bottom:-25px;
+    left:50%;
+    transform:translateX(-50%);
+    
+    font-size:14px;
+    color:#00ffcc;
+    opacity:0;
+    transition:0.3s;
+}
+
+/* SHOW TEXT ON HOVER */
+.social-icon:hover span{
+    opacity:1;
+    bottom:-35px;
+}
+
+footer{
+    position:relative;
+    text-align:center;
+    padding:50px 20px;
+    margin-top:60px;
+    color:#aaa;
+
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(10px);
+
+    border-top:1px solid rgba(0,255,204,0.2);
+
+    /* 🔥 glowing separation */
+    box-shadow:
+        0 -10px 30px rgba(0,255,204,0.15),
+        0 -20px 60px rgba(0,198,255,0.1);
+}
+
+/* 🔥 top glowing line */
+footer::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:2px;
+
+    background: linear-gradient(90deg,#00ffcc,#00c6ff,#0072ff);
+    animation: glowLine 4s linear infinite;
+}
+
+@keyframes glowLine{
+    0%{ opacity:0.4; }
+    50%{ opacity:1; }
+    100%{ opacity:0.4; }
+}
+
+
+.lang-box{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:9999;
+}
+
+.lang-box select{
+    padding:10px 14px;
+    border-radius:10px;
+    border:1px solid rgba(0,255,204,0.4);
+    background:rgba(0,0,0,0.6);
+    color:#00ffcc;
+    font-weight:600;
+    backdrop-filter:blur(10px);
+    cursor:pointer;
+    outline:none;
+    box-shadow:0 0 15px rgba(0,255,204,0.2);
+
+.lang-box select:hover{
+    box-shadow:0 0 25px rgba(0,255,204,0.5);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 🌐 LANGUAGE SWITCHER -->
+<div class="lang-box">
+    <select id="languageSelect" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="ar">Arabic</option>
+        <option value="hi">Hindi</option>
+        <option value="ur">Urdu</option>
+        <option value="tl">Filipino</option>
+    </select>
+</div>
+
+<div class="space"></div>
+<div class="stars"></div>
+<div class="stars2"></div>
+<div class="stars3"></div>
+<div class="nebula"></div>
+<div class="asteroids"></div>
+
+<!-- HERO -->
+<section class="hero">
+    <img src="COMPANY_LOGO-removebg-preview.png">
+   <h1 id="heroTitle">Al-Manarah Al-Thahabiya Company</h1>
+<p id="heroSubtitle">
+Building strong bonds beyond work — celebrating moments, achievements, and the spirit of teamwork together.
+</p>
+
+<a href="INDEX.HTML" class="home-btn" id="homeBtn">Home</a>
+
+   
+
+</section>
+
+<!-- CONTENT -->
+<section class="section">
+
+    <!-- EVENT 1 -->
+    <div class="row">
+        <img src="party 1.jpeg">
+        <div class="text">
+            <h2 id="e1">Team Celebration Night 🎉</h2>
+            <p id="p1">
+                Our Team Celebration Night was a remarkable evening dedicated to appreciating the collective efforts and achievements of our hardworking team. It provided a valuable opportunity for everyone to step away from daily responsibilities and come together in a relaxed and joyful environment. The event was filled with laughter, engaging conversations, and memorable moments that strengthened the bond among team members.This celebration was not just about entertainment, but also about recognizing the dedication, commitment, and professionalism that each individual brings to the organization. From project successes to personal milestones, every achievement was acknowledged with pride and gratitude.Such gatherings play a vital role in building a positive workplace culture, where collaboration, respect, and mutual support thrive. It reinforces the idea that success is not just about completing tasks, but about growing together as a unified team.
+            </p>
+        </div>
+    </div>
+
+    <!-- EVENT 2 -->
+    <div class="row reverse">
+        <img src="party 2.jpeg">
+        <div class="text">
+            <h2 id="e2">Outdoor Fun Activity 🌴</h2>
+            <p id="p2">
+                A refreshing outdoor gathering where our engineers and staff enjoyed time together,
+                strengthening team bonding and creating unforgettable memories.Our Outdoor Fun Activity was designed to provide a refreshing break from the routine work environment while encouraging team interaction in a natural and relaxed setting. Surrounded by fresh air and open spaces, the team engaged in various activities that promoted collaboration, communication, and team spirit.
+
+The event allowed employees to connect beyond professional roles, creating stronger personal relationships that contribute to a healthier and more productive work environment. Through group games, discussions, and informal interactions, participants were able to build trust and understanding among one another.
+            </p>
+        </div>
+    </div>
+
+    <!-- EVENT 3 -->
+    <div class="row">
+        <img src="party 5.jpeg">
+        <div class="text">
+            <h2 id="e3">Project Completion Party 🏗</h2>
+            <p id="p3">
+                The Project Completion Party was a proud and celebratory moment for our entire team, marking the successful delivery of key projects through dedication, expertise, and teamwork. This event was organized to recognize the hard work and commitment that went into achieving project goals with precision and excellence.
+
+Each completed project represents not just technical achievement, but also the collaboration, problem-solving, and perseverance demonstrated by our team members. The celebration provided an opportunity to reflect on challenges faced and milestones achieved along the journey.
+
+Acknowledging these accomplishments is essential in fostering a culture of appreciation and motivation. It encourages individuals to continue striving for excellence and reinforces confidence in the team’s capabilities.
+            </p>
+        </div>
+    </div>
+
+    <!-- EVENT 4 -->
+    <div class="row reverse">
+        <img src="party 3.jpeg">
+        <div class="text">
+            <h2 id="e4">Annual Gathering 🎊</h2>
+            <p id="p4">
+               Our Annual Gathering is one of the most anticipated events, bringing together all members of the organization to celebrate achievements, share experiences, and strengthen our sense of unity. It serves as a platform to reflect on the past year’s accomplishments and set the tone for future goals and aspirations.
+
+The event creates an environment where employees from different departments can interact, exchange ideas, and build stronger professional relationships. It fosters a sense of belonging and reinforces the company’s core values of teamwork, integrity, and excellence.
+            </p>
+        </div>
+    </div>
+
+</section>
+
+
+<footer id="footerText">
+    
+<div class="social-media">
+
+    <a href="https://instagram.com/manarah_sa" target="_blank" class="social-icon instagram">
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+    </a>
+
+    <a href="https://facebook.com/manarah_sa" target="_blank" class="social-icon facebook">
+        <i class="fab fa-facebook-f"></i>
+        <span>Facebook</span>
+    </a>
+
+    <a href="https://snapchat.com/add/manarah_sa" target="_blank" class="social-icon snapchat">
+        <i class="fab fa-snapchat-ghost"></i>
+        <span>Snapchat</span>
+    </a>
+
+    <a href="https://twitter.com/manarah_sa" target="_blank" class="social-icon twitter">
+        <i class="fab fa-twitter"></i>
+        <span>Twitter</span>
+    </a>
+
+      <a href="https://tiktok.com/manarah_sa" target="_blank" class="social-icon tiktok">
+        <i class="fab fa-tiktok"></i>
+        <span>Tiktok</span>
+    </a>
+
+</div>
+
+<div id="copyrightText">
+
+© 2026 Al-Manarah Al-Thahabiya Company | All Rights Reserved
+</div>
+
+</footer>
+
+
+<script>
+const rows = document.querySelectorAll('.row');
+
+window.addEventListener('scroll', () => {
+    rows.forEach(row => {
+        const rect = row.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100){
+            row.classList.add('show');
+        }
+    });
+});
+
+
+</script>
+
+<script>
+const translations = {
+    en: {
+        heroTitle: "Al-Manarah Al-Thahabiya Company",
+        heroSubtitle: "Building strong bonds beyond work — celebrating moments, achievements, and the spirit of teamwork together.",
+        home: "Home",
+
+        e1: "Team Celebration Night 🎉",
+        e2: "Outdoor Fun Activity 🌴",
+        e3: "Project Completion Party 🏗",
+        e4: "Annual Gathering 🎊",
+
+        p1: "Our Team Celebration Night was a remarkable evening dedicated to appreciating the collective efforts and achievements of our hardworking team. It provided a valuable opportunity for everyone to step away from daily responsibilities and come together in a relaxed and joyful environment. The event was filled with laughter, engaging conversations, and memorable moments that strengthened the bond among team members.This celebration was not just about entertainment, but also about recognizing the dedication, commitment, and professionalism that each individual brings to the organization. From project successes to personal milestones, every achievement was acknowledged with pride and gratitude.Such gatherings play a vital role in building a positive workplace culture, where collaboration, respect, and mutual support thrive. It reinforces the idea that success is not just about completing tasks, but about growing together as a unified team. ",
+        p2: " A refreshing outdoor gathering where our engineers and staff enjoyed time together, strengthening team bonding and creating unforgettable memories.Our Outdoor Fun Activity was designed to provide a refreshing break from the routine work environment while encouraging team interaction in a natural and relaxed setting. Surrounded by fresh air and open spaces, the team engaged in various activities that promoted collaboration, communication, and team spirit. The event allowed employees to connect beyond professional roles, creating stronger personal relationships that contribute to a healthier and more productive work environment. Through group games, discussions, and informal interactions, participants were able to build trust and understanding among one another. ",
+        p3: "The Project Completion Party was a proud and celebratory moment for our entire team, marking the successful delivery of key projects through dedication, expertise, and teamwork. This event was organized to recognize the hard work and commitment that went into achieving project goals with precision and excellence. Each completed project represents not just technical achievement, but also the collaboration, problem-solving, and perseverance demonstrated by our team members. The celebration provided an opportunity to reflect on challenges faced and milestones achieved along the journey. Acknowledging these accomplishments is essential in fostering a culture of appreciation and motivation. It encourages individuals to continue striving for excellence and reinforces confidence in the team’s capabilities. ",
+       p4: " Our Annual Gathering is one of the most anticipated events, bringing together all members of the organization to celebrate achievements, share experiences, and strengthen our sense of unity. It serves as a platform to reflect on the past year’s accomplishments and set the tone for future goals and aspirations. The event creates an environment where employees from different departments can interact, exchange ideas, and build stronger professional relationships. It fosters a sense of belonging and reinforces the company’s core values of teamwork, integrity, and excellence. ",
+
+        footer: "© 2026 Al-Manarah Al-Thahabiya Company | All Rights Reserved",
+        homeBtn: "Home"
+    },
+
+    ar: {
+        heroTitle: "شركة المنارة الذهبية",
+        heroSubtitle: "نبني علاقات قوية خارج العمل ونحتفل بالإنجازات وروح الفريق",
+        home: "الرئيسية",
+
+        e1: "ليلة احتفال الفريق 🎉",
+        e2: "نشاط ترفيهي خارجي 🌴",
+        e3: "حفل إنجاز المشروع 🏗",
+        e4: "الاجتماع السنوي 🎊",
+
+        p1: "كانت ليلة احتفال الفريق أمسية مميزة مخصصة لتقدير الجهود الجماعية وإنجازات فريقنا المجتهد. أتاحت هذه المناسبة فرصة قيمة للجميع للابتعاد عن ضغوط العمل اليومية والاجتماع في بيئة مليئة بالراحة والبهجة. امتلأ الحدث بالضحك والمحادثات الممتعة واللحظات التي لا تُنسى والتي عززت الروابط بين أعضاء الفريق. لم يكن هذا الاحتفال مجرد ترفيه، بل كان أيضًا تقديرًا للتفاني والالتزام والاحترافية التي يقدمها كل فرد للمؤسسة. من نجاحات المشاريع إلى الإنجازات الشخصية، تم تكريم كل إنجاز بفخر وامتنان. تلعب مثل هذه التجمعات دورًا مهمًا في بناء ثقافة عمل إيجابية يسودها التعاون والاحترام والدعم المتبادل، وتعزز فكرة أن النجاح ليس فقط في إنجاز المهام بل في النمو معًا كفريق واحد.",
+        p2: "كان التجمع الخارجي نشاطًا منعشًا حيث استمتع مهندسونا وموظفونا بوقتهم معًا، مما عزز الترابط بين الفريق وخلق ذكريات لا تُنسى. تم تصميم هذا النشاط الخارجي لمنح استراحة منعشة من بيئة العمل الروتينية وتشجيع التفاعل بين أعضاء الفريق في أجواء طبيعية ومريحة. وسط الهواء النقي والمساحات المفتوحة، شارك الفريق في أنشطة متنوعة عززت التعاون والتواصل وروح الفريق. سمح الحدث للموظفين بالتواصل خارج الأدوار المهنية، مما ساعد على بناء علاقات شخصية أقوى تساهم في بيئة عمل أكثر صحة وإنتاجية. من خلال الألعاب الجماعية والمناقشات والتفاعلات غير الرسمية، تم بناء الثقة والتفاهم بين الجميع.",
+        p3: "كان حفل إنجاز المشروع لحظة فخر واحتفال لفريقنا بأكمله، حيث تم تسليم المشاريع الرئيسية بنجاح من خلال التفاني والخبرة والعمل الجماعي. تم تنظيم هذا الحدث لتقدير العمل الجاد والالتزام الذي تم بذله لتحقيق أهداف المشروع بدقة وتميز. كل مشروع مكتمل يمثل ليس فقط إنجازًا تقنيًا، بل أيضًا التعاون وحل المشكلات والمثابرة التي أظهرها أعضاء الفريق. وفر هذا الاحتفال فرصة للتأمل في التحديات والإنجازات التي تحققت خلال الرحلة. إن تقدير هذه الإنجازات ضروري لتعزيز ثقافة التقدير والتحفيز، ويشجع الأفراد على مواصلة السعي نحو التميز ويعزز الثقة في قدرات الفريق.",
+       p4: "يُعد اجتماعنا السنوي أحد أكثر الفعاليات انتظارًا، حيث يجمع جميع أعضاء المؤسسة للاحتفال بالإنجازات ومشاركة الخبرات وتعزيز روح الوحدة. يوفر هذا الحدث منصة للتأمل في إنجازات العام الماضي ووضع أهداف وطموحات المستقبل. يخلق الحدث بيئة تتيح للموظفين من مختلف الأقسام التفاعل وتبادل الأفكار وبناء علاقات مهنية أقوى. كما يعزز الشعور بالانتماء ويؤكد قيم الشركة الأساسية مثل العمل الجماعي والنزاهة والتميز.",
+
+        footer: "© 2026 شركة المنارة الذهبية | جميع الحقوق محفوظة",
+        homeBtn: "الرئيسية"
+    },
+
+    hi: {
+        heroTitle: "अल-मनारा अल-थाहबिया कंपनी",
+        heroSubtitle: "काम से बाहर मजबूत रिश्ते बनाना और टीम भावना का जश्न मनाना",
+        home: "होम",
+
+        e1: "टीम सेलिब्रेशन नाइट 🎉",
+        e2: "आउटडोर फन एक्टिविटी 🌴",
+        e3: "प्रोजेक्ट कम्पलीशन पार्टी 🏗",
+        e4: "एनुअल गैदरिंग 🎊",
+
+       p1: "हमारी टीम सेलिब्रेशन नाइट एक यादगार शाम थी, जो हमारी मेहनती टीम के सामूहिक प्रयासों और उपलब्धियों की सराहना के लिए समर्पित थी। इस अवसर ने सभी को दैनिक कार्यों से दूर होकर एक आरामदायक और खुशहाल माहौल में एक साथ आने का अवसर दिया। इस कार्यक्रम में हँसी, रोचक बातचीत और यादगार पल शामिल थे, जिन्होंने टीम के सदस्यों के बीच संबंधों को और मजबूत किया। यह उत्सव केवल मनोरंजन नहीं था, बल्कि प्रत्येक व्यक्ति की मेहनत, समर्पण और पेशेवरता को सम्मान देने का माध्यम भी था। परियोजना की सफलता से लेकर व्यक्तिगत उपलब्धियों तक, हर सफलता को गर्व और आभार के साथ सराहा गया। ऐसे आयोजन एक सकारात्मक कार्य संस्कृति बनाने में महत्वपूर्ण भूमिका निभाते हैं, जहाँ सहयोग, सम्मान और पारस्परिक समर्थन बढ़ता है। यह संदेश देता है कि सफलता केवल कार्य पूरा करने में नहीं, बल्कि एक टीम के रूप में साथ बढ़ने में है।",
+        p2: "हमारा आउटडोर फन एक्टिविटी एक ताज़गी भरा आयोजन था, जहाँ हमारे इंजीनियरों और कर्मचारियों ने एक साथ समय बिताया, जिससे टीम बॉन्डिंग मजबूत हुई और यादगार पल बने। इस आउटडोर गतिविधि का उद्देश्य कार्य के तनावपूर्ण माहौल से एक ब्रेक देना और प्राकृतिक वातावरण में टीम इंटरैक्शन को बढ़ावा देना था। ताज़ी हवा और खुले स्थान में टीम ने विभिन्न गतिविधियों में भाग लिया, जिससे सहयोग, संवाद और टीम भावना को बढ़ावा मिला। इस कार्यक्रम ने कर्मचारियों को पेशेवर भूमिकाओं से बाहर आकर जुड़ने का अवसर दिया, जिससे मजबूत व्यक्तिगत संबंध बने जो एक स्वस्थ और अधिक उत्पादक कार्य वातावरण में योगदान करते हैं। समूह खेलों, चर्चाओं और अनौपचारिक बातचीत के माध्यम से विश्वास और समझ विकसित हुई।",
+       p3: "प्रोजेक्ट कम्पलीशन पार्टी हमारे पूरे टीम के लिए गर्व और उत्सव का क्षण था, जहाँ प्रमुख परियोजनाओं को समर्पण, विशेषज्ञता और टीमवर्क के माध्यम से सफलतापूर्वक पूरा किया गया। यह कार्यक्रम कठिन परिश्रम और प्रतिबद्धता को सम्मान देने के लिए आयोजित किया गया था। प्रत्येक पूर्ण परियोजना केवल तकनीकी उपलब्धि नहीं है, बल्कि सहयोग, समस्या-समाधान और धैर्य का प्रतीक भी है जो टीम ने दिखाया। इस उत्सव ने यात्रा के दौरान आए चुनौतियों और उपलब्धियों पर विचार करने का अवसर दिया। ऐसी उपलब्धियों को स्वीकार करना प्रेरणा और सराहना की संस्कृति को बढ़ावा देने के लिए आवश्यक है और यह टीम की क्षमताओं में आत्मविश्वास बढ़ाता है।",
+        p4: "हमारा वार्षिक सम्मेलन सबसे प्रतीक्षित कार्यक्रमों में से एक है, जो सभी सदस्यों को एक साथ लाकर उपलब्धियों का जश्न मनाने, अनुभव साझा करने और एकता की भावना को मजबूत करने का अवसर देता है। यह पिछले वर्ष की उपलब्धियों पर विचार करने और भविष्य के लक्ष्यों को निर्धारित करने का मंच प्रदान करता है। यह आयोजन विभिन्न विभागों के कर्मचारियों को एक-दूसरे से मिलने, विचार साझा करने और मजबूत पेशेवर संबंध बनाने का अवसर देता है। यह अपनापन बढ़ाता है और कंपनी के मूल मूल्यों जैसे टीमवर्क, ईमानदारी और उत्कृष्टता को मजबूत करता है।",
+
+        footer: "© 2026 अल-मनारा अल-थाहबिया कंपनी | सर्वाधिकार सुरक्षित",
+        homeBtn: "होम"
+    },
+
+    ur: {
+        heroTitle: "المنارہ الذہبیہ کمپنی",
+        heroSubtitle: "کام سے باہر مضبوط تعلقات اور کامیابیوں کا جشن",
+        home: "ہوم",
+
+        e1: "ٹیم سیلیبریشن نائٹ 🎉",
+        e2: "آؤٹ ڈور ایکٹیویٹی 🌴",
+        e3: "پروجیکٹ کمپلیشن پارٹی 🏗",
+        e4: "سالانہ اجتماع 🎊",
+
+       p1: "ہماری ٹیم سیلیبریشن نائٹ ایک یادگار شام تھی جو ہماری محنتی ٹیم کی اجتماعی کوششوں اور کامیابیوں کو سراہنے کے لیے وقف تھی۔ اس موقع نے سب کو روزمرہ کے کام سے ہٹ کر ایک خوشگوار اور آرام دہ ماحول میں اکٹھے ہونے کا موقع دیا۔ اس تقریب میں ہنسی، دلچسپ گفتگو اور یادگار لمحات شامل تھے جنہوں نے ٹیم کے اراکین کے درمیان تعلقات کو مزید مضبوط کیا۔ یہ جشن صرف تفریح نہیں تھا بلکہ ہر فرد کی محنت، لگن اور پیشہ ورانہ مہارت کو سراہنے کا ذریعہ بھی تھا۔ پروجیکٹ کی کامیابیوں سے لے کر ذاتی کامیابیوں تک ہر کارنامے کو فخر اور شکرگزاری کے ساتھ سراہا گیا۔ ایسے اجتماعات مثبت ورک کلچر بنانے میں اہم کردار ادا کرتے ہیں جہاں تعاون، احترام اور باہمی حمایت فروغ پاتی ہے۔ یہ تصور مضبوط کرتا ہے کہ کامیابی صرف کام مکمل کرنے میں نہیں بلکہ ایک ٹیم کے طور پر ساتھ بڑھنے میں ہے۔",
+       p2: "ہمارا آؤٹ ڈور فن ایکٹیویٹی ایک تازگی بخش اجتماع تھا جہاں ہمارے انجینئرز اور عملے نے ایک ساتھ وقت گزارا، جس سے ٹیم بانڈنگ مضبوط ہوئی اور یادگار لمحات بنے۔ یہ سرگرمی روزمرہ کے کام کے دباؤ سے وقفہ دینے اور قدرتی ماحول میں ٹیم انٹریکشن کو فروغ دینے کے لیے ڈیزائن کی گئی تھی۔ کھلی فضا اور تازہ ہوا میں ٹیم نے مختلف سرگرمیوں میں حصہ لیا جس سے تعاون، رابطے اور ٹیم اسپرٹ کو فروغ ملا۔ اس پروگرام نے ملازمین کو پیشہ ورانہ کردار سے باہر آکر ایک دوسرے سے جڑنے کا موقع دیا، جس سے مضبوط ذاتی تعلقات قائم ہوئے جو ایک بہتر اور زیادہ مؤثر ورک ماحول میں مددگار ثابت ہوتے ہیں۔ گروپ گیمز، گفتگو اور غیر رسمی بات چیت کے ذریعے اعتماد اور سمجھ بوجھ پیدا ہوئی۔",
+       p3: "پروجیکٹ کمپلیشن پارٹی ہماری پوری ٹیم کے لیے فخر اور جشن کا لمحہ تھا، جہاں اہم منصوبے محنت، مہارت اور ٹیم ورک کے ذریعے کامیابی سے مکمل کیے گئے۔ یہ تقریب محنت اور لگن کو سراہنے کے لیے منعقد کی گئی تھی۔ ہر مکمل پروجیکٹ نہ صرف ایک تکنیکی کامیابی ہے بلکہ ٹیم کی جانب سے دکھائی گئی تعاون، مسئلہ حل کرنے کی صلاحیت اور ثابت قدمی کی علامت بھی ہے۔ اس جشن نے سفر کے دوران آنے والے چیلنجز اور کامیابیوں پر غور کرنے کا موقع دیا۔ ایسی کامیابیوں کو تسلیم کرنا حوصلہ افزائی اور قدر دانی کی ثقافت کو فروغ دینے کے لیے ضروری ہے اور یہ ٹیم کی صلاحیتوں پر اعتماد بڑھاتا ہے۔",
+        p4: "ہماری سالانہ میٹنگ سب سے زیادہ متوقع ایونٹس میں سے ایک ہے جو تمام اراکین کو ایک ساتھ لا کر کامیابیوں کا جشن منانے، تجربات شیئر کرنے اور اتحاد کو مضبوط بنانے کا موقع فراہم کرتی ہے۔ یہ پچھلے سال کی کامیابیوں پر غور کرنے اور مستقبل کے اہداف طے کرنے کا پلیٹ فارم فراہم کرتی ہے۔ یہ ایونٹ مختلف شعبوں کے ملازمین کو ایک دوسرے سے ملنے، خیالات کا تبادلہ کرنے اور مضبوط پیشہ ورانہ تعلقات بنانے کا موقع دیتا ہے۔ یہ احساسِ تعلق کو مضبوط کرتا ہے اور کمپنی کی بنیادی اقدار جیسے ٹیم ورک، دیانتداری اور بہترین کارکردگی کو فروغ دیتا ہے۔",
+
+        footer: "© 2026 المنارہ الذہبیہ کمپنی | جملہ حقوق محفوظ ہیں",
+        homeBtn: "ہوم"
+    },
+
+    tl: {
+        heroTitle: "Al-Manarah Al-Thahabiya Company",
+        heroSubtitle: "Pagbuo ng matibay na samahan at pagdiriwang ng tagumpay",
+        home: "Home",
+
+        e1: "Gabi ng Pagdiriwang 🎉",
+        e2: "Outdoor Fun Activity 🌴",
+        e3: "Project Completion Party 🏗",
+        e4: "Taunang Pagtitipon 🎊",
+
+        p1: "Ang Team Celebration Night ay isang hindi malilimutang gabi na nakalaan sa pagbibigay halaga sa sama-samang pagsisikap at tagumpay ng aming masisipag na koponan. Nagbigay ito ng pagkakataon sa lahat na makapagpahinga mula sa araw-araw na trabaho at magsama-sama sa isang masaya at maginhawang kapaligiran. Napuno ang event ng tawanan, makabuluhang usapan, at mga alaala na nagpatibay sa ugnayan ng bawat miyembro ng team. Hindi lamang ito tungkol sa kasiyahan kundi pati na rin sa pagkilala sa dedikasyon, sipag, at propesyonalismo ng bawat isa. Mula sa tagumpay ng mga proyekto hanggang sa personal na tagumpay, lahat ay kinilala nang may pagmamalaki at pasasalamat. Ang ganitong pagtitipon ay mahalaga sa pagbuo ng positibong kultura sa trabaho kung saan nangingibabaw ang pagtutulungan, respeto, at suporta sa isa’t isa. Ipinapakita nito na ang tagumpay ay hindi lamang sa pagtatapos ng gawain kundi sa paglago bilang isang buong koponan.",
+        p2: "Ang aming Outdoor Fun Activity ay isang nakakapreskong pagtitipon kung saan ang mga inhinyero at staff ay nagkaroon ng oras na magsama-sama, na nagpatibay sa samahan ng koponan at lumikha ng mga hindi malilimutang alaala. Idinisenyo ito upang magbigay ng pahinga mula sa nakakapagod na trabaho at hikayatin ang interaksyon sa natural at relaxed na kapaligiran. Sa sariwang hangin at bukas na espasyo, ang team ay lumahok sa iba't ibang aktibidad na nagpalakas ng kooperasyon, komunikasyon, at diwa ng teamwork. Nagkaroon din ng pagkakataon ang mga empleyado na makipag-ugnayan nang hindi limitado sa kanilang propesyonal na tungkulin, na nagbunga ng mas matibay na personal na relasyon at mas produktibong kapaligiran sa trabaho. Sa pamamagitan ng mga laro, talakayan, at impormal na usapan, nabuo ang tiwala at pag-unawa sa isa’t isa.",
+        p3: "Ang Project Completion Party ay isang makabuluhang selebrasyon para sa aming buong koponan, kung saan matagumpay na natapos ang mga pangunahing proyekto sa pamamagitan ng dedikasyon, kasanayan, at teamwork. Layunin ng event na kilalanin ang pagsusumikap at commitment ng bawat isa. Ang bawat natapos na proyekto ay hindi lamang teknikal na tagumpay kundi simbolo rin ng pagtutulungan, paglutas ng problema, at tiyaga ng team. Nagbigay ito ng pagkakataon upang balikan ang mga hamon at tagumpay sa buong proseso. Ang pagkilala sa mga tagumpay na ito ay mahalaga upang mapalakas ang kultura ng pagkilala at motibasyon at upang mapalakas ang kumpiyansa ng team.",
+       p4: "Ang aming Annual Gathering ay isa sa mga pinaka-aabangang event kung saan nagtitipon ang lahat ng miyembro upang ipagdiwang ang mga tagumpay, magbahagi ng karanasan, at palakasin ang pagkakaisa. Nagbibigay ito ng pagkakataon na pagnilayan ang mga nagdaang tagumpay at magtakda ng mga layunin para sa hinaharap. Sa event na ito, nagkakaroon ng pagkakataon ang iba't ibang departamento na makipag-ugnayan, magbahagi ng ideya, at bumuo ng mas matibay na propesyonal na relasyon. Pinapalakas nito ang pakiramdam ng pagiging kabilang at ang mga pangunahing halaga ng kumpanya tulad ng teamwork, integridad, at kahusayan.",
+
+        footer: "© 2026 Al-Manarah Al-Thahabiya Company | All Rights Reserved",
+        homeBtn: "Home"
+    }
+};
+
+function changeLanguage(){
+    const lang = document.getElementById("languageSelect").value;
+    const t = translations[lang];
+
+    document.getElementById("heroTitle").innerText = t.heroTitle;
+    document.getElementById("heroSubtitle").innerText = t.heroSubtitle;
+    document.getElementById("homeBtn").innerText = t.homeBtn;
+
+    document.getElementById("e1").innerText = t.e1;
+    document.getElementById("e2").innerText = t.e2;
+    document.getElementById("e3").innerText = t.e3;
+    document.getElementById("e4").innerText = t.e4;
+
+    document.getElementById("p1").innerText = t.p1;
+    document.getElementById("p2").innerText = t.p2;
+    document.getElementById("p3").innerText = t.p3;
+    document.getElementById("p4").innerText = t.p4;
+
+    document.getElementById("copyrightText").innerText = t.footer;
+}
+</script>
+
+</body>
+</html>
