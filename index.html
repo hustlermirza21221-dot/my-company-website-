@@ -1568,14 +1568,26 @@ body::before {
 </div>
 
 </section>
+
 <section class="section contact" id="contact">
 <h2 data-lang="contact">Contact Us</h2>
-<form>
-<input placeholder="Your Name" required="" type="text"/>
-<input placeholder="Your Email" required="" type="email"/>
-<textarea placeholder="Your Message" required="" rows="4"></textarea>
+
+<form action="https://formsubmit.co/manarah.drive@gmail.com" method="POST">
+
+<input type="hidden" name="_subject" value="New Message from Website">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="thankyou.html">
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+
 <button type="submit">Send Message</button>
+
 </form>
+
 </section>
 <footer>
     
