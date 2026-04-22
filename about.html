@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Company</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+header {
+    display: flex;
+    transition: transform 0.4s ease, background 0.3s ease;
+    align-items: center;
+    justify-content: flex-start; /* left align everything */
+    gap: 300px; /* links aur logo ke beech thoda gap */
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-scrolled {
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+}
+
+.header-hide {
+    transform: translateY(-100%);
+}
+
+
+/* HERO VIDEO SECTION */
+.hero {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+}
+
+/* SLIDER */
+.slider{
+    position:absolute;
+    width:100%;
+    height:100%;
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transition:4s;
+    z-index:0;
+}
+
+.slide.active{
+    opacity:1;
+    z-index:1;
+}
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    position:relative;
+    z-index:0;
+}
+/* active slide */
+.slide.active{
+    opacity:1;
+}
+
+/* DARK OVERLAY */
+.slide::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.5);
+    z-index:1;
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    color:white;
+    text-align:center;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.hero-content h1 {
+    font-size:40px;
+}
+
+.hero-content p {
+    margin-top:10px;
+    font-size:18px;
+}
+
+/* BACK BUTTON */
+.back-btn {
+    position:absolute;
+    top:20px;
+    left:20px;
+    background:#00bcd4;
+    color:WHITE;
+    padding:8px 15px;
+    border-radius:20px;
+    text-decoration:none;
+}
+
+/* ABOUT SECTION */
+.about-section {
+    padding:50px 20px;
+    background:#f5f5f5;
+    text-align:center;
+}
+
+.about-section h2 {
+    margin-bottom:30px;
+}
+
+.about-section p {
+    max-width:900px;
+    margin:auto;
+    line-height:1.6;
+}
+
+/* INFO CARDS */
+.info-container {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    padding:40px;
+}
+
+.info-box {
+    background:white;
+    padding:20px;
+    width:250px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.info-box h3 {
+    margin-bottom:10px;
+}
+
+/* FOOTER */
+footer {
+    text-align:center;
+    padding:20px;
+    background:#222;
+    color:white;
+}
+
+.navbar {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:rgba(0,0,0,0.6);
+    z-index:1000;
+}
+
+.logo {
+    color:white;
+}
+
+.navbar nav a {
+    color:white;
+    margin-left:20px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.navbar nav a:hover {
+    color:#00bcd4;
+}
+
+.hero {
+    margin-top:60px; /* navbar ke niche shift */
+}
+
+/* HERO CONTENT LOGO */
+.hero-logo{
+    width:120px;
+    margin-bottom:15px;
+    filter: brightness(0) invert(1);
+}
+
+.company-details {
+    padding: 60px 20px;
+    background: #ffffff;
+}
+
+.details-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: auto;
+    gap: 40px;
+}
+
+/* LEFT TEXT */
+.details-text {
+    flex: 1;
+}
+
+.details-text h2 {
+    margin-bottom: 10px;
+    color: #00bcd4;
+}
+
+.details-text p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* RIGHT IMAGES */
+.details-images {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.person {
+    text-align: center;
+}
+
+.person img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #00bcd4;
+}
+
+.person h4 {
+    margin-top: 10px;
+}
+
+.person p {
+    font-size: 14px;
+    color: gray;
+}
+
+.leader-container{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:40px;
+    padding:60px;
+}
+
+.leader-text{
+    flex:1;
+position:relative;
+}
+
+.leader-name{
+    position:absolute;
+    bottom:0;
+    right:0;
+    font-size:14px;
+    color:#555;
+    font-style:italic;
+}
+
+.leader-images{
+    display:flex;
+    gap:20px;
+}
+
+.leader-card img{
+    width:150px;
+    border-radius:10px;
+}
+
+.vision-mission{
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+    padding:50px;
+}
+
+.box{
+    flex:1;
+    background:#fff;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.premium-heading{
+    display:inline-block;
+    font-size:32px;
+    font-weight:600;
+    padding:12px 30px;
+    margin-bottom:30px;
+    border-radius:50px;
+
+    /* 🔥 SKY BLUE GLASS BACKGROUND */
+    background: rgba(0, 188, 212, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* border glow */
+    border:1px solid rgba(0, 188, 212, 0.3);
+
+    /* TEXT GRADIENT */
+    background-image: linear-gradient(90deg, #00e5ff, #2196f3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* SHADOW FOR PREMIUM LOOK */
+    box-shadow:
+        0 5px 15px rgba(0,188,212,0.2),
+        inset 0 0 10px rgba(255,255,255,0.1);
+
+    transition:0.4s;
+}
+
+.premium-heading:hover{
+    transform:scale(1.05);
+
+    box-shadow:
+        0 10px 30px rgba(0,188,212,0.4),
+        0 0 20px rgba(33,150,243,0.6);
+}
+
+.premium-text{
+    font-size:17px;
+    line-height:1.8;
+    color:#444;
+    margin-bottom:15px;
+}
+
+.highlight-text{
+    font-size:18px;
+    font-weight:600;
+    color:#00bcd4;
+    margin-top:10px;
+}
+
+.leader-images{
+    display:flex;
+    gap:30px;
+    justify-content:center;
+}
+
+.leader-card{
+    text-align:center;
+}
+
+.leader-card img{
+    width:220px;          /* 🔥 SAME SIZE */
+    height:260px;         /* 🔥 SAME HEIGHT */
+    object-fit:cover;     /* 🔥 PERFECT FIT */
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.leader-card img:hover{
+    transform:scale(1.05);
+}
+
+.leader-card h4{
+    margin-top:10px;
+    font-weight:600;
+}
+
+.leader-container{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:90px;              /* 🔥 GAP KAM KIYA (text paas aayega) */
+    max-width:1600px;
+    margin:0;
+    padding-left:50px;
+}
+
+/* IMAGE SIDE */
+.leader-image img{
+    width:300px;          /* 🔥 IMAGE BADI KI */
+    height:360px;
+    object-fit:cover;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* TEXT SIDE */
+.leader-text{
+    flex:1;
+}
+
+/* HEADING */
+.premium-heading{
+    font-size:32px;
+    margin-bottom:15px;
+    background: linear-gradient(90deg, #00bcd4, #2196f3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.leader-section{
+    background: linear-gradient(to right, #f9f9f9, #ffffff);
+}
+
+.vision-section{
+    position: relative;
+    padding:100px 20px;
+    background: #f5f7fa; /* fallback */
+    overflow: hidden;
+}
+
+/* Background Images */
+.vision-background{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:1;
+    pointer-events:none; /* images won't block clicks */
+}
+
+.vision-bg{
+    position:absolute;
+    width:400px;
+    height:400px;
+    object-fit:cover;
+    filter: blur(50px) brightness(0.6);
+    border-radius:50%;
+    opacity:0.7;
+}
+
+/* Left & Right Images */
+.vision-bg.left{
+    top:50px;
+    left:-150px;
+}
+
+.vision-bg.right{
+    bottom:50px;
+    right:-150px;
+}
+
+/* Content on top */
+.vision-content{
+    position:relative;
+    z-index:2; /* above background images */
+    max-width:1100px;
+    margin:auto;
+    text-align:center;
+}
+
+.vision-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:40px;
+    margin-top:50px;
+}
+
+/* Vision & Mission Cards */
+.vision-card{
+    flex:1;
+    min-width:280px;
+    padding:30px;
+    border-radius:20px;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(10px);
+    box-shadow:0 15px 40px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.vision-card:hover{
+    transform: translateY(-10px) scale(1.02);
+    box-shadow:0 20px 50px rgba(0,0,0,0.2);
+}
+
+.vision-card h3{
+    margin-bottom:15px;
+    font-size:22px;
+    background: linear-gradient(90deg, #00bcd4, #2196f3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.vision-card p{
+    font-size:16px;
+    line-height:1.7;
+    color:#444;
+}
+body{
+    background:#ffffff;
+}
+
+.about-premium{
+    padding:100px 20px;
+    text-align:center;
+    background: linear-gradient(to right, #ffffff, #f7fbff);
+}
+
+/* HEADING */
+.about-title{
+    display:inline-block;
+    font-size:40px;
+    font-weight:600;
+    padding:15px 35px;
+    border-radius:50px;
+    margin-bottom:30px;
+
+    /* SKY BLUE GLASS */
+    background: rgba(0, 188, 212, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border:1px solid rgba(0, 188, 212, 0.3);
+
+    /* TEXT GRADIENT */
+    background-image: linear-gradient(90deg, #00e5ff, #2196f3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* SHADOW */
+    box-shadow:
+        0 5px 15px rgba(0,188,212,0.2),
+        inset 0 0 10px rgba(255,255,255,0.1);
+
+    transition:0.4s;
+}
+
+/* CONTAINER */
+.about-container{
+    max-width:900px;
+    margin:auto;
+}
+
+/* TEXT */
+.about-text{
+    font-size:18px;
+    line-height:1.8;
+    color:#444;
+    margin-bottom:20px;
+}
+
+/* HIGHLIGHT LINE 🔥 */
+.about-highlight{
+    font-size:20px;
+    font-weight:600;
+    margin-top:20px;
+
+    color:#00bcd4;
+}
+
+.about-container{
+    max-width:900px;
+    margin:auto;
+    padding:40px;
+    border-radius:20px;
+
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(10px);
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-flex{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    max-width:1100px;
+    margin:auto;
+    flex-wrap:wrap; /* mobile ke liye */
+}
+
+.about-title-container{
+    display: flex;
+    justify-content: flex-start;  /* heading left side align */
+    max-width: 1100px;            /* same width as content */
+    margin: 0 auto 30px auto;     /* center horizontally but heading left */
+}
+
+/* TEXT SIDE */
+.about-text-area{
+    flex:1;
+}
+
+/* IMAGE SIDE */
+.about-image{
+    flex:1;
+    text-align:center;
+}
+
+.about-image img{
+    width:100%;
+    max-width:400px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+@media(max-width:768px){
+    .about-flex{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
+.about-image img:hover{
+    transform:scale(1.05);
+    transition:0.4s;
+}
+
+.core-section{
+    padding:100px 20px;
+    text-align:center;
+    background: linear-gradient(to right, #f8fbff, #eef4ff);
+}
+
+/* TITLE */
+.core-title{
+    display:inline-block;
+    font-size:32px;
+    font-weight:600;
+    padding:12px 30px;
+    border-radius:50px;
+    margin-bottom:40px;
+
+    /* GLASS EFFECT */
+    background: rgba(0, 188, 212, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border:1px solid rgba(0, 188, 212, 0.3);
+
+    /* TEXT GRADIENT */
+    background-image: linear-gradient(90deg, #00e5ff, #2196f3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* SHADOW */
+    box-shadow:
+        0 5px 15px rgba(0,188,212,0.2),
+        inset 0 0 10px rgba(255,255,255,0.1);
+
+    transition:0.4s;
+}
+
+.about-title:hover,
+.core-title:hover,
+.premium-heading:hover{
+    transform:scale(1.05);
+
+    box-shadow:
+        0 10px 30px rgba(0,188,212,0.4),
+        0 0 20px rgba(33,150,243,0.6);
+}
+
+/* CONTAINER */
+.core-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+}
+
+/* CARD */
+.core-card{
+    width:250px;
+    padding:30px;
+    border-radius:20px;
+
+    background:white;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+
+    transition:0.4s;
+}
+
+/* ICON */
+.icon{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+/* TEXT */
+.core-card h3{
+    margin-bottom:10px;
+    font-size:20px;
+}
+
+.core-card p{
+    font-size:15px;
+    color:#555;
+    line-height:1.6;
+}
+
+/* 🔥 HOVER EFFECT */
+.core-card:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 20px 50px rgba(0,0,0,0.2);
+}
+
+.core-card{
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(10px);
+}
+
+.core-card:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 20px 50px rgba(0,0,0,0.2),
+               0 0 20px rgba(0,188,212,0.4);
+}
+
+.vision-section{
+    position: relative;
+    padding:100px 20px;
+    background: #f5f7fa; /* fallback */
+    overflow: hidden;
+}
+
+/* Background Images */
+.vision-background{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:1;
+    pointer-events:none; /* images won't block clicks */
+}
+
+.vision-bg{
+    position:absolute;
+    width:2300px;
+    height:400px;
+    object-fit:cover;
+    filter: blur(5px) brightness(0.6);
+    border-radius:50%;
+    opacity:0.7;
+}
+
+/* Left & Right Images */
+.vision-bg.left{
+    top:50px;
+    left:-150px;
+}
+
+.vision-bg.right{
+    bottom:50px;
+    right:-150px;
+}
+
+/* Content on top */
+.vision-content{
+    position:relative;
+    z-index:2; /* above background images */
+    max-width:1100px;
+    margin:auto;
+    text-align:center;
+}
+
+.vision-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:40px;
+    margin-top:50px;
+}
+
+/* Vision & Mission Cards */
+.vision-card{
+    flex:1;
+    min-width:280px;
+    padding:30px;
+    border-radius:20px;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(10px);
+    box-shadow:0 15px 40px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.vision-card:hover{
+    transform: translateY(-10px) scale(1.02);
+    box-shadow:0 20px 50px rgba(0,0,0,0.2);
+}
+
+.vision-card h3{
+    margin-bottom:15px;
+    font-size:22px;
+    background: linear-gradient(90deg, #00bcd4, #2196f3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.vision-card p{
+    font-size:16px;
+    line-height:1.7;
+    color:#444;
+}
+
+.social-media{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin:40px 0;
+}
+
+.social-icon{
+    position:relative;
+    width:75px;
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    font-size:30px;
+    color:#fff;
+    text-decoration:none;
+
+    background: linear-gradient(135deg,#00ffcc,#0072ff);
+    
+    transition:0.4s;
+
+    /* glow */
+    box-shadow:
+        0 0 10px rgba(0,255,204,0.5),
+        0 0 20px rgba(0,198,255,0.4);
+}
+
+/* HOVER EFFECT */
+.social-icon:hover{
+    transform: translateY(-12px) scale(1.2);
+
+    box-shadow:
+        0 0 20px rgba(0,255,204,0.9),
+        0 0 40px rgba(0,198,255,0.8),
+        0 0 80px rgba(0,114,255,0.6);
+}
+
+/* TEXT (hidden by default) */
+.social-icon span{
+    position:absolute;
+    bottom:-25px;
+    left:50%;
+    transform:translateX(-50%);
+    
+    font-size:14px;
+    color:#00ffcc;
+    opacity:0;
+    transition:0.3s;
+}
+
+/* SHOW TEXT ON HOVER */
+.social-icon:hover span{
+    opacity:1;
+    bottom:-35px;
+}
+
+footer{
+    position:relative;
+    text-align:center;
+    padding:50px 20px;
+    margin-top:60px;
+    color:#aaa;
+
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(10px);
+
+    border-top:1px solid rgba(0,255,204,0.2);
+
+    /* 🔥 glowing separation */
+    box-shadow:
+        0 -10px 30px rgba(0,255,204,0.15),
+        0 -20px 60px rgba(0,198,255,0.1);
+}
+
+/* 🔥 top glowing line */
+footer::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:2px;
+
+    background: linear-gradient(90deg,#00ffcc,#00c6ff,#0072ff);
+    animation: glowLine 4s linear infinite;
+}
+
+@keyframes glowLine{
+    0%{ opacity:0.4; }
+    50%{ opacity:1; }
+    100%{ opacity:0.4; }
+}
+
+.location-link{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 20px;
+    border-radius:25px;
+    text-decoration:none;
+    font-size:14px;
+    color:white;
+
+    background: linear-gradient(135deg, #00bcd4, #2196f3);
+
+    box-shadow:
+        0 5px 15px rgba(0,188,212,0.3);
+
+    transition:0.3s;
+}
+
+.location-link:hover{
+    transform:scale(1.05);
+    box-shadow:
+        0 10px 25px rgba(0,188,212,0.5),
+        0 0 15px rgba(33,150,243,0.6);
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<header class="navbar">
+    <h2 class="logo">Al-Manarah</h2>
+
+    <nav>
+        <a href="INDEX.HTML">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="our projects.html">Projects</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO VIDEO -->
+<section class="hero">
+
+   <div class="slider">
+
+    <div class="slide active">
+        <img src="3D Visualization.webp">
+    </div>
+
+    <div class="slide">
+        <img src="Commercial Exterior.jpg">
+    </div>
+
+    <div class="slide">
+        <img src="Higaly-alignment-min.jpg">
+    </div>
+
+    <div class="slide">
+        <img src="Interior-Exterior Design.webp">
+    </div>
+
+    <div class="slide">
+        <img src="Landscape Design.jpg">
+    </div>
+
+</div>
+
+    
+
+    <a href="COMPANY BEST WEBSITE .HTML" class="back-btn">⬅ Back</a>
+
+    <div class="hero-content">
+        
+        <img src="COMPANY_LOGO-removebg-preview.png" class="hero-logo">
+        <h1>Al-Manarah Al-Thahabiya</h1>
+        <p>Engineering Excellence & Innovation</p>
+    </div>
+
+</section>
+
+
+
+<section class="about-premium">
+
+    <div class="about-title-container">
+        <h2 class="about-title">About Our Company</h2>
+    </div>
+
+    <div class="about-flex">
+
+        <!-- LEFT SIDE TEXT -->
+        <div class="about-text-area">
+            <p class="about-text">
+                Al-Manarah Al-Thahabiya Company stands as a symbol of engineering excellence, 
+                delivering advanced surveying, architectural, and construction solutions 
+                across Saudi Arabia.
+            </p>
+
+            <p class="about-text">
+                With a team of highly skilled professionals, we combine precision, innovation, 
+                and modern technology to transform ideas into reality.
+            </p>
+
+            <p class="about-highlight">
+                We don’t just build projects — we create lasting impact.
+            </p>
+        </div>
+
+        <!-- RIGHT SIDE IMAGE -->
+        <div class="about-image">
+            <img src="Building Facade Design.jpg" alt="Company Image">
+        </div>
+
+    </div>
+
+</section>
+
+<section class="leader-section">
+
+    <div class="leader-container">
+
+        <!-- LEFT SIDE IMAGE -->
+        <div class="leader-image">
+            <img src="MR HAMZA.png" alt="Owner">
+        </div>
+
+        <!-- RIGHT SIDE TEXT -->
+        <div class="leader-text">
+            <h2 class="premium-heading">Message from Leadership</h2>
+
+           
+
+            <p class="premium-text">
+               At Al-Manarah Al-Thahabiya, we are committed to delivering excellence through innovation, precision, and trust. 
+Our approach is built on a strong foundation of technical expertise, modern engineering practices, and a deep understanding 
+of our clients’ needs.
+
+We strive to transform ideas into reality by providing high-quality surveying, architectural, and construction solutions 
+that meet international standards. Every project we undertake reflects our dedication to accuracy, efficiency, and long-term value creation.
+
+With a vision to grow and lead in the engineering sector across Saudi Arabia, we continuously invest in advanced technologies 
+and skilled professionals. Our mission is not only to complete projects successfully but to build lasting relationships based 
+on reliability and performance.
+            </p>
+
+            <p class="highlight-text">
+                We don’t just build projects — we build trust.
+            </p>
+
+           <p class="leader-name">— Eng. Hamza Almeer</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="vision-section">
+
+   
+
+    <div class="vision-content">
+
+       <h2 class="premium-heading">Our Vision & Mission</h2>
+
+        <div class="vision-container">
+
+            <!-- VISION -->
+            <div class="vision-card">
+                <h3>Our Vision</h3>
+                <p>
+                    To become a leading engineering consultancy in Saudi Arabia, 
+                    recognized for innovation, precision, and sustainable development 
+                    across all sectors.
+                </p>
+            </div>
+
+            <!-- MISSION -->
+            <div class="vision-card">
+                <h3>Our Mission</h3>
+                <p>
+                    To deliver high-quality engineering, surveying, and design 
+                    solutions that exceed client expectations while maintaining 
+                    professionalism, efficiency, and trust.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="core-section">
+
+    <h2 class="core-title">Our Core Values</h2>
+
+    <div class="core-container">
+
+        <div class="core-card">
+            <div class="icon">🏆</div>
+            <h3>Excellence</h3>
+            <p>We deliver the highest standards in every project with precision and quality.</p>
+        </div>
+
+        <div class="core-card">
+            <div class="icon">💡</div>
+            <h3>Innovation</h3>
+            <p>We embrace modern technology to create smart and efficient solutions.</p>
+        </div>
+
+        <div class="core-card">
+            <div class="icon">🤝</div>
+            <h3>Integrity</h3>
+            <p>We maintain transparency and trust in all our professional relationships.</p>
+        </div>
+
+        <div class="core-card">
+            <div class="icon">📈</div>
+            <h3>Growth</h3>
+            <p>We continuously improve and strive for long-term success and sustainability.</p>
+        </div>
+
+    </div>
+
+</section>
+<!-- INFO CARDS -->
+<div class="info-container">
+
+    <div class="info-box">
+        <h3>📍 Location</h3>
+         <a href="https://maps.app.goo.gl/wEcJN6JZ1AHWw9PEA?g_st=awb" target="_blank" class="location-link">
+        View Our Office Location
+    
+
+</a>
+    </div>
+
+    <div class="info-box">
+        <h3>📞 Contact</h3>
+        <p>+966 571282271</p>
+    </div>
+
+    <div class="info-box">
+        <h3>✉ Email</h3>
+        <p>info@company.com</p>
+    </div>
+
+    <div class="info-box">
+        <h3>🏗 Services</h3>
+        <p>Surveying, Design, Construction</p>
+    </div>
+
+</div>
+
+<footer>
+    
+<div class="social-media">
+
+    <a href="https://instagram.com/manarah_sa" target="_blank" class="social-icon instagram">
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+    </a>
+
+    <a href="https://facebook.com/manarah_sa" target="_blank" class="social-icon facebook">
+        <i class="fab fa-facebook-f"></i>
+        <span>Facebook</span>
+    </a>
+
+    <a href="https://snapchat.com/add/manarah_sa" target="_blank" class="social-icon snapchat">
+        <i class="fab fa-snapchat-ghost"></i>
+        <span>Snapchat</span>
+    </a>
+
+    <a href="https://twitter.com/manarah_sa" target="_blank" class="social-icon twitter">
+        <i class="fab fa-twitter"></i>
+        <span>Twitter</span>
+    </a>
+
+      <a href="https://tiktok.com/manarah_sa" target="_blank" class="social-icon tiktok">
+        <i class="fab fa-tiktok"></i>
+        <span>Tiktok</span>
+    </a>
+
+
+
+</div>
+
+© 2026 Al-Manarah Al-Thahabiya Company | All Rights Reserved
+
+
+
+</footer>
+
+<script>
+    
+
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+setInterval(()=>{
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+},7000);
+
+let header = document.querySelector("header");
+
+window.addEventListener("scroll", function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop === 0) {
+        // 🔝 TOP → show header
+        header.classList.remove("header-hide");
+    } else {
+        // 🔽 kahin bhi niche → hide header
+        header.classList.add("header-hide");
+    }
+});
+
+</script>
+
+</body>
+</html>  
